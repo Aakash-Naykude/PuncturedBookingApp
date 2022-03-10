@@ -7,7 +7,7 @@ function Shops() {
     fetchStores();
   }, []);
   const fetchStores = () => {
-    fetch(`http://localhost:4000/shops`)
+    fetch(`https://puncturedbookingapp.herokuapp.com/shops`)
       .then((e) => e.json())
       .then((res) => {
         console.log(res);
@@ -29,7 +29,9 @@ function Shops() {
         {list.map((e, i) => (
           <div key={i} class="shadow-lg p-3 mb-5 bg-body rounded shopListDiv">
             <img src={e.image} alt="shopimages" className="shopimages" />
-
+            <h4>Shopname : {e.shopname}</h4>
+            <h5>Ownername : {e.ownername}</h5>
+            <h5>Contact no : {e.mobilenumber}</h5>
             <button type="button" class="btn btn-info">
               <Link
                 to={`/shops/${e._id}`}

@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Cart from "./Componanats/Cart/Cart";
+import Checkout from "./Componanats/Checkout/Checkout";
 import Home from "./Componanats/Home/Home";
 import GoogleApiWrapper from "./Componanats/Location/Location";
 import Login from "./Componanats/Login/Login";
@@ -19,6 +20,7 @@ function App() {
         <Route path="/shops" element={<Shops />}></Route>
         <Route path="/shops/:id" element={<ShopsDetails />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/checkout" element={<Checkout />}></Route>
       </Routes>
     </div>
   );

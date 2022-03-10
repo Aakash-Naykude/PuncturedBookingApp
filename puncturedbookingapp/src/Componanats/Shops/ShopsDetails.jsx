@@ -8,7 +8,7 @@ function ShopsDetails() {
     getList();
   }, []);
   const getList = () => {
-    fetch(`http://localhost:4000/shops/${id}`)
+    fetch(`https://puncturedbookingapp.herokuapp.com/shops/${id}`)
       .then((res) => res.json())
       .then((json) => setList(json))
       .catch((e) => {
@@ -16,7 +16,7 @@ function ShopsDetails() {
       });
   };
   const handleAddToCart = () => {
-    fetch(`http://localhost:4000/cart`, {
+    fetch(`https://puncturedbookingapp.herokuapp.com/cart`, {
       method: "POST",
       body: JSON.stringify(list),
       headers: {

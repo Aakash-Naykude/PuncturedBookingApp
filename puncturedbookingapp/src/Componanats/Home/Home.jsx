@@ -5,7 +5,7 @@ import "./Home.css";
 function Home() {
   const { handleToggleSelect } = useContext(LocationContext);
   const handleSelect = () => {
-    handleToggleSelect()
+    handleToggleSelect();
   };
 
   return (
@@ -23,7 +23,7 @@ function Home() {
       >
         <Link
           to="/location"
-          style={{ textDecoration: "none", color: "#FC28FB" }}
+          style={{ textDecoration: "none", color: "#1B1F3A" }}
         >
           Click here to choose location
         </Link>

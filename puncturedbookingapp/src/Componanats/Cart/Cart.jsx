@@ -7,7 +7,7 @@ function Cart() {
     getList();
   }, []);
   const getList = () => {
-    fetch(`http://localhost:4000/cart`)
+    fetch(`https://puncturedbookingapp.herokuapp.com/cart`)
       .then((res) => res.json())
       .then((json) => {
         setList(json);
@@ -15,6 +15,19 @@ function Cart() {
       })
       .catch((e) => {
         console.log(e);
+      });
+  };
+  const handleDelete = (id) => {
+    fetch(`https://puncturedbookingapp.herokuapp.com/cart/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((s) => s.json())
+      .then(() => {
+        alert("Deleted successfully");
+        getList();
       });
   };
   return (
@@ -51,19 +64,32 @@ function Cart() {
           </button>
         </div>
       )}
+      <div className="ToggleBtns">
+        <Link class="navbar-brand" to="/shops">
+          <button type="button" class="btn btn-success">
+            Add more services
+          </button>
+        </Link>
+        <Link class="navbar-brand" to="/checkout">
+          <button type="button" class="btn btn-success">
+            Check Out And Do Payment
+          </button>
+        </Link>
+      </div>
 
       <div className="shopList">
         {list.map((e, i) => (
           <div key={i} class="shadow-lg p-3 mb-5 bg-body rounded shopListDiv">
             <img src={e.image} alt="shopimages" className="shopimages" />
-
-            <button type="button" class="btn btn-info">
-              <Link
-                to={`/shops`}
-                style={{ textDecoration: "none", color: "white" }}
-              >
-                More Info
-              </Link>
+            <h4>Shopname : {e.shopname}</h4>
+            <h5>Ownername : {e.ownername}</h5>
+            <h5>Contact no : {e.mobilenumber}</h5>
+            <button
+              type="button"
+              class="btn btn-danger"
+              onClick={() => handleDelete(e._id)}
+            >
+              Delete From Cart
             </button>
           </div>
         ))}

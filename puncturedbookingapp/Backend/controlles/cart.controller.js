@@ -43,4 +43,14 @@ router.patch("/:id", async (req, res) => {
   }
 });
 
+router.delete("/:id", async (req, res) => {
+  try {
+    console.log(req);
+    const upuser = await Cart.findByIdAndDelete(req.params.id).lean().exec();
+
+    return res.send(upuser);
+  } catch (err) {
+    return res.status(500).send({ message: err.message, status: "failed" });
+  }
+});
 module.exports = router;
