@@ -6,5 +6,7 @@ app.use(cors());
 
 const ShopController = require("./controlles/Shop.controller");
 app.use("/shops", ShopController);
+const cartController = require("./controlles/cart.controller");
+app.use("/cart", cartController);
 
 module.exports = app;

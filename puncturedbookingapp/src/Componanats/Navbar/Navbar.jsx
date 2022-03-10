@@ -24,10 +24,18 @@ function Navbar() {
               Home
             </button>
           </Link>
-
+          <Link class="navbar-brand" to="/cart">
+            <button type="button" class="btn btn-outline-primary">
+              Cart
+            </button>
+          </Link>
           {isSelected ? (
             <Link class="navbar-brand" to="/shops">
-              <button type="button" class="btn btn-outline-primary" onClick={handleSelect}>
+              <button
+                type="button"
+                class="btn btn-outline-primary"
+                onClick={handleSelect}
+              >
                 Choose This Location
               </button>
             </Link>
