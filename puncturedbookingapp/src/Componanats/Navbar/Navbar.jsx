@@ -77,21 +77,16 @@ function Navbar() {
                   </a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/cart">
+                    Cart
+                  </a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="/">
                     Sign out
                   </a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="/"
-                    id="offcanvasNavbarDropdown"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Dropdown
-                  </a>
                   <ul
                     class="dropdown-menu"
                     aria-labelledby="offcanvasNavbarDropdown"

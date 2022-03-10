@@ -14,6 +14,29 @@ function Shops() {
         setList(res);
       });
   };
+  const handleChange = (e) => {
+    let { name, value, type, checked } = e.target;
+    value = type === "checkbox" ? checked : value;
+    var newList;
+    if (name === "ratings" && value === true) {
+      newList = list.sort((a, b) => b.ratings - a.ratings);
+      setList(newList);
+      console.log(newList);
+    } else if (name === "ratings" && value === false) {
+      newList = list.sort((a, b) => a.ratings - b.ratings);
+      setList(newList);
+      console.log(newList);
+    }
+    if (name === "discounts" && value === true) {
+      newList = list.sort((a, b) => b.Discounts - a.Discounts);
+      setList(newList);
+      console.log(newList);
+    } else if (name === "discounts" && value === false) {
+      newList = list.sort((a, b) => a.Discounts - b.Discounts);
+      setList(newList);
+      console.log(newList);
+    }
+  };
   return (
     <div class="container">
       <h1
@@ -25,6 +48,13 @@ function Shops() {
       >
         Here are puncture shops near your location
       </h1>
+      <h3>Optimese Your Search using Filter</h3>
+      <form>
+        <label style={{ marginLeft: "40px" }}>Ratings</label>
+        <input type="checkbox" name="ratings" onChange={handleChange} />
+        <label style={{ marginLeft: "30px" }}>Discounts</label>
+        <input type="checkbox" name="discounts" onChange={handleChange} />
+      </form>
       <div className="shopList">
         {list.map((e, i) => (
           <div key={i} class="shadow-lg p-3 mb-5 bg-body rounded shopListDiv">
